@@ -9,7 +9,7 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, "button[value='Add to basket']")
-    SUCCSESS_ADD_TO_BASKET = (By.CSS_SELECTOR,"#default")
+    PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET = (By.CSS_SELECTOR,"div.alertinner strong")
     PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main h1")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
-    PRICE_PRODUCT_IN_THE_MESSAGE = (By.CSS_SELECTOR, "#default.default")
+    PRICE_PRODUCT_IN_THE_MESSAGE = (By.CSS_SELECTOR, ".alertinner p strong")
