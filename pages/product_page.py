@@ -8,14 +8,14 @@ class ProductPage(BasePage):
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-
+# нажатие на кнопку "add to basket"
     def add_product_to_basket(self):
         button_add = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
         button_add.click()
 
     def add_quiz(self):
     	self.solve_quiz_and_get_code()
-    
+# проверка того, что элементы присутствуют на странице товара
     def shoul_be_message_add_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not presented"
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET), "Message about adding is not presented" 
