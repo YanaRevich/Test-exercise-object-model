@@ -8,14 +8,15 @@ class ProductPage(BasePage):
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-# нажатие на кнопку "add to basket"
+    # нажатие на кнопку "add to basket"
     def add_product_to_basket(self):
         button_add = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
         button_add.click()
-
+    
     def add_quiz(self):
     	self.solve_quiz_and_get_code()
-# проверка того, что элементы присутствуют на странице товара
+
+    # проверка того, что элементы присутствуют на странице товара
     def shoul_be_message_add_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not presented"
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET), "Message about adding is not presented" 
@@ -34,17 +35,19 @@ class ProductPage(BasePage):
         assert product_price == price_product_in_message, \
         "No product price in the message"
     
+    # проверка, что нет сообщения об успешном добавлении товара в корзину с помощью is_not_element_present
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET), \
        "Success message is presented, but should not be"
-
-    def is_disappearing (self):
-        assert self.is_disappeared(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET), \
-       "Success message is presented, but should not be"
-
+    
+    # проверка, что нет сообщения об успешном добавлении товара в корзину с помощью is_not_element_present
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+    # проверка, что нет сообщения об успешном добавлении товара в корзину с помощью is_disappeared
+    def is_disappearing (self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_AFTER_ADD_TO_BASKET), \
+       "Success message is presented, but should not be"
 
 
 

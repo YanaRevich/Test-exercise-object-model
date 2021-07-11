@@ -11,6 +11,11 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    REGISTER_EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
+    REGISTER_PASSWORD =(By.CSS_SELECTOR, "#id_registration-password1")
+    REGISTER_PASSWORD2 = (By.CSS_SELECTOR, "#id_registration-password2")
+    BUTTON_REGISTER = (By.CSS_SELECTOR, "button[name='registration_submit']")
+    SUCCESSFUL_REGISTRATION_MESSAGE = (By.CSS_SELECTOR, "div.alertinner")
 
 class ProductPageLocators():
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, "button[value='Add to basket']")

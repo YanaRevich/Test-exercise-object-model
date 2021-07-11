@@ -5,8 +5,19 @@ from pages.basket_page import BasketPage
 import time
 import pytest
 
-#@pytest.mark.login_guest
+@pytest.mark.login_guest
 class TestLoginFromMainPage():
+#    @pytest.fixture(scope="function", autouse=True)
+#    def setup(self):
+#        self.product = ProductFactory(title = "Best book created by robot")
+        # создаем по апи
+#        self.link = self.product.link
+#        yield
+        # после этого ключевого слова начинается teardown
+        # выполнится после каждого теста в классе
+        # удаляем те данные, которые мы создали 
+#        self.product.delete()
+
     def test_guest_can_go_to_login_page(self, browser): 
         link = "http://selenium1py.pythonanywhere.com/"
         page = MainPage(browser, link)
