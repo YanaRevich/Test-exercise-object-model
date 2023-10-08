@@ -2,6 +2,19 @@ from pages.product_page import ProductPage
 from pages.login_page import LoginPage
 import pytest
 
+@pytest.mark.login
+class TestLoginFromProductPage():
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self):
+        self.product = ProductFactory(title = "Best book created by robot")
+        # создаем по апи
+        self.link = self.product.link
+        yield
+        # после этого ключевого слова начинается teardown
+        # выполнится после каждого теста в классе
+        # удаляем те данные, которые мы создали 
+        self.product.delete()
+        
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -15,6 +28,9 @@ import pytest
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9" ])
 
 @pytest.mark.need_review
+
+
+
 def test_guest_can_add_product_to_basket(browser, link):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     page = ProductPage(browser, link)
